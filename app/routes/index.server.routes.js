@@ -1,7 +1,13 @@
 /*--By Diego Rodriguez 11/30/16
     Title: HW_LoyaltyOne */
+var index = require('../controllers/index.server.controller');
 
 module.exports = function(app) {
-    var index = require('../controllers/index.server.controller');
+
     app.get('/', index.render);
+
+    app.route('/:text1')
+        .get(index.render);
+
+    app.param('text1', index.showText);
 };
