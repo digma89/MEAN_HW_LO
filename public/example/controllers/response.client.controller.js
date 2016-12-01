@@ -6,6 +6,7 @@ angular.module('example').controller('ResponseController', ['$scope', '$routePar
         $scope.dInserted = true;
         var respons = new Response({
             respons: this.enterText,
+            mess: $location.id,
         });
         respons.$save(function(resp, headers) {}, function(errorResponse) {
             $scope.error = errorResponse.data.message;

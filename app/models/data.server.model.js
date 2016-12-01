@@ -12,6 +12,30 @@ var DatasSchema = new Schema({
         trim: true,
         required: 'Title cannot be blank'
     },
+    city: {
+        type: String,
+        default: '',
+        trim: true,
+        required: 'Title cannot be blank'
+    },
+    long: {
+        type: String,
+        default: '',
+        trim: true
+
+    },
+    lat: {
+        type: String,
+        default: '',
+        trim: true
+
+    },
+    temp: {
+        type: String,
+        default: '',
+        trim: true
+
+    },
     data: {
         type: String,
         default: '',

@@ -4,21 +4,29 @@
 
         <input type="text" id="enterName" ng-model="enterName" placeholder="Name" required>
         <input type="text" id="enterText" ng-model="enterText" placeholder="Message" required>
+        <input type="text" id="enterCity" ng-model="enterCity" placeholder="City" required>
         <input type="submit" value="Done">
 
 
     </form>
+    <h5 style="color:red;" ng-show="derror">{{error}}</h5>
+
 
     <h1>Users:</h1>
+
     <div data-ng-repeat="user in show">
 
         Name:<small data-ng-bind="user.name"></small><br/> Message:
         <a href="/#!/api/response/{{user._id}}"><small data-ng-bind="user.data"></small></a><br/> Date:
-        <small data-ng-bind="user.created"></small><br/> Respones:
+        <small data-ng-bind="user.created"></small><br/> City:
+        <small data-ng-bind="user.city"></small><br/> Longitude:
+        <small data-ng-bind="user.long"></small><br/> Latitude:
+        <small data-ng-bind="user.lat"></small><br/> Temperature:
+        <small>{{user.temp}}°F</small><br/> Respones:
         <div style="margin-left:15px;" data-ng-repeat="r in user.responses">
             <small data-ng-bind="r.r"></small>
         </div><br/><br/>
     </div>
-
+    <h5>Click on the message to give a response*</h5>
 
 </section>

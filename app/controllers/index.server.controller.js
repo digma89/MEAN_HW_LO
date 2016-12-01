@@ -32,7 +32,6 @@ var getErrorMessage = function(err) {
 //POST Create new message
 exports.enter = function(req, res) {
     var data = new Data(req.body);
-
     data.save(function(err) {
         if (err) {
             return res.status(400).send({
