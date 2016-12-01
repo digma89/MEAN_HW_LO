@@ -1,29 +1,25 @@
 angular.module('example').controller('ExampleController', ['$scope', '$routeParams', '$location', 'Data', function($scope, $location, $routeParams, Data) {
     $scope.name = $routeParams.text
 
+    //Save data in DB
     $scope.done = function() {
-        // $location.path('api/' + $scope.enterText);
-        //$scope.show = $scope.enterText;
-
         var data = new Data({
+            name: this.enterName,
             data: this.enterText,
         });
 
-        data.$save(function(response) {
-            $location.path('api/' + response.data);
+        data.$save(function(resp, headers) {
+            $scope.show = Data.query();
+            console.log(resp);
         }, function(errorResponse) {
-            $scope.error = "chale";
-            //$scope.error = errorResponse.data.message;
+            $scope.error = errorResponse.data.message;
         });
+
     };
 
+    //Show list 
+    $scope.show = Data.query();
 
-
-    /*  $scope.mark.$done(function() {
-          $location.path('marks/' + $scope.mark.course._id);
-      }, function(errorResponse) {
-          $scope.error = errorResponse.data.message;
-      });*/
 
 
 }]);

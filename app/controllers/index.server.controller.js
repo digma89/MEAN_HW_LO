@@ -2,7 +2,7 @@
     Title: HW_LoyaltyOne */
 require('../models/data.server.model');
 var mongoose = require('mongoose'),
-    Data = mongoose.model('Data1');
+    Data = mongoose.model('Data2');
 
 //set the title of my new page for routes
 exports.render = function(req, res) {
@@ -28,3 +28,18 @@ exports.enter = function(req, res) {
         }
     });
 }
+
+exports.list = function(req, res) {
+    Data.find().sort([
+            ['name', 'ascending']
+        ])
+        .exec(function(err, data) {
+            if (err) {
+                return res.status(400).send({
+                    message: getErrorMessage(err)
+                });
+            } else {
+                res.json(data);
+            }
+        });
+};

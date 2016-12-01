@@ -6,6 +6,12 @@ var DatasSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    name: {
+        type: String,
+        default: '',
+        trim: true,
+        required: 'Title cannot be blank'
+    },
     data: {
         type: String,
         default: '',
@@ -15,4 +21,4 @@ var DatasSchema = new Schema({
 
 });
 
-mongoose.model('Data1', DatasSchema);
+mongoose.model('Data2', DatasSchema);

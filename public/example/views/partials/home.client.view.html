@@ -1,17 +1,23 @@
 <section ng-controller="ExampleController">
-    <input type="text" id="text1" ng-model="name">
-    <input type="text" id="text2" ng-model="name">
 
-
-    <h1>Update Mark</h1>
     <form data-ng-submit="done()" novalidate>
 
-        <input type="text" id="enterText" ng-model="enterText">
+        <input type="text" id="enterName" ng-model="enterName" placeholder="Name">
+        <input type="text" id="enterText" ng-model="enterText" placeholder="Message">
         <input type="submit" value="Done">
 
     </form>
 
-    <h1>Text:{{show}}</h1>
+    <h1>Users:</h1>
+    <div data-ng-repeat="user in show">
+
+        Name:<small data-ng-bind="user.name"></small><br/> Message:
+        <small data-ng-bind="user.data"></small><br/> Date:
+        <small data-ng-bind="user.created"></small><br/><br/>
+
+
+    </div>
+
 
 
 </section>
