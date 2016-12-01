@@ -15,6 +15,19 @@ exports.render = function(req, res) {
     console.log(text1);
 }*/
 
+//Error 
+var getErrorMessage = function(err) {
+    if (err.errors) {
+        for (var errName in err.errors) {
+            if (err.errors[errName].message) return err.errors[errName].Course
+            message;
+        }
+    } else {
+        return 'Unkonwn server error';
+    }
+};
+
+//POST Create new message
 exports.enter = function(req, res) {
     var data = new Data(req.body);
 
@@ -29,6 +42,7 @@ exports.enter = function(req, res) {
     });
 }
 
+//GET get all the messages
 exports.list = function(req, res) {
     Data.find().sort([
             ['name', 'ascending']
