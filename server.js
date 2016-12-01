@@ -24,11 +24,17 @@ var express = require('./config/express');
 var app = express();
 var debug = require('debug')('New folder (3):server');
 var http = require('http');
+var https = require('https');
+var fs = require("fs");
 
 /**
  * Get port from environment and store in Express.
  */
 
+var privateKey = fs.readFileSync('sslcert/privatekey.pem', 'utf8');
+var certificate = fs.readFileSync('sslcert/certificate.pem', 'utf8');
+
+var credentials = { key: privateKey, cert: certificate };
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
@@ -37,7 +43,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = https.createServer(credentials, app);
 console.log('Server running at http://localhost:3000/');
 
 /**

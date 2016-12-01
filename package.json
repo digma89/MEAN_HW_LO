@@ -14,7 +14,8 @@
         "method-override": "~2.2.0",
         "ejs": "~1.0.0",
         "debug": "~2.2.0",
-        "mongoose": "~4.4.3"
+        "mongoose": "~4.4.3",
+        "pem": "~1.2.2"
     },
     "devDependencies": {
         "chai": "^3.5.0",
