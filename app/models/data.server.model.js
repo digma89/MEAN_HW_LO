@@ -1,3 +1,6 @@
+/*--By Diego Rodriguez 11/30/16
+    Title: HW_LoyaltyOne */
+
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 

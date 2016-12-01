@@ -1,8 +1,8 @@
 angular.module('example').controller('ResponseController', ['$scope', '$routeParams', '$location', 'Data', 'Response', function($scope, $location, $routeParams, Data, Response) {
 
     $scope.dInserted = false;
-    //Save data in DB
 
+    //Save data in DB
     $scope.doneResponse = function() {
         console.log($scope.enterText);
         if ($scope.enterText == "" || $scope.enterText == null) {

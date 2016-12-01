@@ -23,7 +23,7 @@ describe('Test requests', () => {
     it('POST creating new comments is working', function(done) {
         chai.request(app)
             .post('/api')
-            .send({ "name": "test1", "data": "test" })
+            .send({ "name": "test1", "data": "test", "city": "t", "long": "t", "lat": "t", "temp": "t", })
             .end(function(err, res) {
                 if (err) done(err);
                 res.body.should.have.property('name');
@@ -42,19 +42,17 @@ describe('Test requests', () => {
                 done();
             });
     });
-    /*
-        //Test creating adding responses
-        it('POST adding responses is working', function(done) {
-            chai.request(app)
-                .post('/api/response')
-                .send({ "respons": "test1" })
-                .end(function(err, res) {
-                    if (err) done(err);
-                    // res.should.have.status(200);
-                    done();
-                });
-        });
-    */
 
+
+    //Test response comments
+    it('POST response comments is working', function(done) {
+        chai.request(app)
+            .post('/api/response')
+            .end(function(err, res) {
+                if (err) done(err);
+                res.should.have.status(200);
+                done();
+            });
+    });
 
 });

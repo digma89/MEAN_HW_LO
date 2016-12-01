@@ -13,9 +13,6 @@ exports.render = function(req, res) {
     });
 };
 
-/*exports.showText = function(req, res, next, text1) {
-    console.log(text1);
-}*/
 
 //Error 
 var getErrorMessage = function(err) {
@@ -65,14 +62,15 @@ exports.list = function(req, res) {
 exports.createR = function(req, res) {
     console.log(req.body.mess);
     Data.findByIdAndUpdate(
-        req.body.mess, { $push: { "responses": { r: req.body.respons } } }, { safe: true, upsert: true },
+        req.body.mess, { $push: { "responses": { r: req.body.respons } } },
         function(err, model) {
             if (err) {
                 return res.status(400).send({
                     message: getErrorMessage(err)
                 });
+            } else {
+                res.json("good");
             }
         }
     );
-
 }
