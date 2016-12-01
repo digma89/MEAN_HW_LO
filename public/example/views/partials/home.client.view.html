@@ -13,12 +13,12 @@
     <div data-ng-repeat="user in show">
 
         Name:<small data-ng-bind="user.name"></small><br/> Message:
-        <small data-ng-bind="user.data"></small><br/> Date:
-        <small data-ng-bind="user.created"></small><br/><br/>
-
-
+        <a href="/#!/api/response/{{user._id}}"><small data-ng-bind="user.data"></small></a><br/> Date:
+        <small data-ng-bind="user.created"></small><br/> Respones:
+        <div style="margin-left:15px;" data-ng-repeat="r in user.responses">
+            <small data-ng-bind="r.r"></small>
+        </div><br/><br/>
     </div>
-
 
 
 </section>

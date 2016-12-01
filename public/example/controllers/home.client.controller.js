@@ -19,7 +19,7 @@ angular.module('example').controller('ExampleController', ['$scope', '$routePara
 
     //Show list 
     $scope.show = Data.query();
-
+    console.log(Data.query());
 
 
 }]);

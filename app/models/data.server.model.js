@@ -17,8 +17,9 @@ var DatasSchema = new Schema({
         default: '',
         trim: true,
         required: 'Title cannot be blank'
-    }
-
+    },
+    responses: [{ r: { type: String } }]
+        /*[{ type: Schema.Types.ObjectId, ref: 'Response' }]*/
 });
 
 mongoose.model('Data2', DatasSchema);

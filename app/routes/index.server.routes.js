@@ -13,6 +13,8 @@ module.exports = function(app) {
         .get(index.list)
         .post(index.enter);
 
-    /*  app.param('text1', index.showText);*/
+    app.route('/api/response')
+        .post(index.createR)
+        // .get(index.read);
 
 };

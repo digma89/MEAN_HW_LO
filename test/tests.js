@@ -19,7 +19,8 @@ describe('Test requests', () => {
             });
     });
 
-    it('POST is working', function(done) {
+    //Test creating new comments
+    it('POST creating new comments is working', function(done) {
         chai.request(app)
             .post('/api')
             .send({ "name": "test1", "data": "test" })
@@ -41,18 +42,19 @@ describe('Test requests', () => {
                 done();
             });
     });
-    /*    //test get with parameters
-        it('should recieve some text /<id> GET', function(done) {
-            var text = "someText";
+    /*
+        //Test creating adding responses
+        it('POST adding responses is working', function(done) {
             chai.request(app)
-                .get('/' + text)
-                .send(text)
+                .post('/api/response')
+                .send({ "respons": "test1" })
                 .end(function(err, res) {
-                    res.should.have.status(200);
-                    res.body.should.equal(text)
+                    if (err) done(err);
+                    // res.should.have.status(200);
                     done();
                 });
-        });*/
+        });
+    */
 
 
 });
