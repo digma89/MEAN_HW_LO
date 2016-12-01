@@ -4,10 +4,15 @@ var index = require('../controllers/index.server.controller');
 
 module.exports = function(app) {
 
-    app.get('/', index.render);
-
-    app.route('/:text1')
+    // app.get('/', index.render);
+    /* app.route('/api/:text1')
         .get(index.render);
+*/
 
-    app.param('text1', index.showText);
+    app.route('/')
+        .get(index.render)
+        .post(index.enter);
+
+    /*  app.param('text1', index.showText);*/
+
 };

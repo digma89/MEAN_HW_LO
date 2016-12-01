@@ -16,6 +16,10 @@ console.log('Server running at http://localhost:3000/');
 /**
  * Module dependencies.
  */
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+var mongoose = require('./config/mongoose');
 var express = require('./config/express');
 var app = express();
 var debug = require('debug')('New folder (3):server');
@@ -24,6 +28,7 @@ var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
+
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
@@ -38,7 +43,7 @@ console.log('Server running at http://localhost:3000/');
 /**
  * Listen on provided port, on all network interfaces.
  */
-
+var db = mongoose();
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);

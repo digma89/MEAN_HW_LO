@@ -18,6 +18,17 @@ describe('Test requests', () => {
                 done();
             });
     });
+
+    it('POST is working', function(done) {
+        chai.request(app)
+            .post('/')
+            .send({ "data": "test" })
+            .end(function(err, res) {
+                if (err) done(err);
+                res.should.have.status(200);
+                done();
+            });
+    });
     /*    //test get with parameters
         it('should recieve some text /<id> GET', function(done) {
             var text = "someText";

@@ -2,14 +2,40 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="DR">
     <title>
-        <%=title%>
+        <%= title %>
     </title>
 </head>
 
 <body>
-    <%=title%>
+    <div id="wrapper">
+        <div ng-include="'example/views/templates/header.client.view.html'"> </div>
 
+        <h1><%= title %></h1>
+
+        <section ng-view></section>
+
+
+        <script type="text/javascript" src="/lib/angular/angular.js"></script>
+        <script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+        
+
+
+        <script type="text/javascript" src="/example/example.client.module.js"></script>
+        <script type="text/javascript" src="/example/controllers/home.client.controller.js"></script>
+        <script type="text/javascript" src="/example/services/example.client.service.js"></script>
+        <script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+
+        <script type="text/javascript" src="/application.js"></script>
+
+        <div ng-include="'example/views/templates/footer.client.view.html'"> </div>
+    </div>
+    <!--/#Wrapper-->
 </body>
 
 </html>

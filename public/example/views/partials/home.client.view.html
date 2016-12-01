@@ -1,0 +1,17 @@
+<section ng-controller="ExampleController">
+    <input type="text" id="text1" ng-model="name">
+    <input type="text" id="text2" ng-model="name">
+
+
+    <h1>Update Mark</h1>
+    <form data-ng-submit="done()" novalidate>
+
+        <input type="text" id="enterText" ng-model="enterText">
+        <input type="submit" value="Done">
+
+    </form>
+
+    <h1>Text:{{show}}</h1>
+
+
+</section>

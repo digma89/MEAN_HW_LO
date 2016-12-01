@@ -6,13 +6,14 @@ var express = require('express'),
     compress = require('compression'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override');
+    config = require('./config');
 
 module.exports = function() {
     var app = express();
 
-    if (process.env.NODE_ENV === 'development') {
+    if(process.env.NODE_ENV === 'development'){
         app.use(morgan('dev'));
-    } else if (process.env.NODE_ENV === 'production') {
+    }else if(process.env.NODE_ENV === 'production'){
         app.use(compress());
     }
 
